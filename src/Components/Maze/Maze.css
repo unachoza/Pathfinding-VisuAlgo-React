@@ -24,3 +24,13 @@
 .cell.end {
   background-color: red;
 }
+
+button {
+  font-size: 16px;
+  padding: 10px 15px;
+  background-color: rgb(155, 83, 222);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+}
