@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Maze.css"
 
 const Maze = () => {
-
+ const [gridMaze, setGridMaze] = useState([])
+ 
     const generateMaze = (height, width) => {
         let matrix = []
         for(let i = 0; i < height; i++ ){
@@ -13,16 +14,19 @@ const Maze = () => {
             }
             matrix.push(row)
         }
-        console.log(matrix)
+        setGridMaze(matrix)
     }
 
     return(
         <div>
             <button onClick={()=> generateMaze(4,4)}>click me</button>
-            <div className='cell'></div>
-            <div className='cell'></div>
-            <div className='cell'></div>
-            <div className='cell'></div>
+            {gridMaze.map((row, rowIndex) => (
+                <div className='row'>
+                    {row.map((cell, cellIndex) => (
+                         <div className={`cell ${cell}`}></div>
+                    ))}
+                </div>
+            ))}
         </div>
     )
 }
