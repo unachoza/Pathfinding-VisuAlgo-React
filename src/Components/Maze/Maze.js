@@ -3,10 +3,11 @@ import "./Maze.css"
 
 const Maze = () => {
     let defaultMaze = [
-       ['wall', 'wall', 'wall', 'wall'],
-       ['wall', 'path', 'wall', 'wall'],
-       ['wall', 'path', 'wall', 'wall'],
-       ['wall', 'wall', 'path', 'path']
+       ['wall', 'wall', 'wall', 'wall', 'wall'],
+       ['wall', 'path', 'wall', 'wall', 'wall'],
+       ['wall', 'path', 'wall', 'wall', 'wall'],
+       ['wall', 'wall', 'path', 'path', 'wall'],
+       ['wall', 'wall', 'path', 'path', 'wall']
     ]
 
     const [gridMaze, setGridMaze] = useState(defaultMaze)
@@ -57,12 +58,16 @@ const Maze = () => {
     }
 
     return(
-        <div>
-            <button onClick={()=> generateMaze(10,10)}>Generate New Maze</button>
+        <div className='main'>
+            <div>
+                <button onClick={()=> generateMaze(10,10)}> New Maze</button>
+                <button onClick={(e) => console.log(e.target.innerHTML)}>Start BFS</button>
+                <button onClick={(e) => console.log(e.target.innerHTML)}>Start DFS</button>
+            </div>
             {gridMaze.map((row, rowIndex) => (
-                <div className='row'>
+                <div key={rowIndex} className='row'>
                     {row.map((cell, cellIndex) => (
-                         <div className={`cell ${cell}`}></div>
+                         <div key={cellIndex} className={`cell ${cell}`}></div>
                     ))}
                 </div>
             ))}

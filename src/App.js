@@ -3,7 +3,8 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="App" style={{color: "blue"}}>
+     learn react
       <Maze/>
     </div>
   );
